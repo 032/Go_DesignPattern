@@ -10,7 +10,7 @@ func TestSingleton(t *testing.T) {
 	cir := circlefactory.Create(100, 110, 52)
 	cir.Draw()
 
-	recfactory := &RactangleFactory{}
+	recfactory := &RectangleFactory{}
 	rec := recfactory.Create(100, 110, 52, 102)
 	rec.Draw()
 

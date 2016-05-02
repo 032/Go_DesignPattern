@@ -1,27 +1,16 @@
 package adapter
 
 import (
+	"fmt"
 	"testing"
 )
 
-func TestAdapterByEmbedded(t *testing.T) {
-	var decorator Decorator
+func TestAdapterCompo(t *testing.T) {
+	var target Target
 
-	decorator = NewEmbeddedDecorateBanner("A")
+	adaptee := Adaptee{amount: 140}
+	fmt.Printf("amount %v in EUR \n", adaptee.GetEUR())
 
-	if str := decorator.Decorate(); str != "*A*" {
-		t.Errorf("Expect decorated str to %s, but %s", "*A*", str)
-	}
-
-}
-
-func TestAdapterByDelegate(t *testing.T) {
-	var decorator Decorator
-
-	decorator = NewCompositionDecorateBanner("A")
-
-	if str := decorator.Decorate(); str != "*A*" {
-		t.Errorf("Expect decorated str to %s, but %s", "*A*", str)
-	}
-
+	target = Adaptor{adaptee}
+	fmt.Printf("amount %v in RMB \n", target.GetRMB())
 }
